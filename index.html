@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product App</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="nav-bar"></div>
+
+    <div id="app">
+      <div class="product">
+        <div class="product-image">
+          <img v-bind:src="image">
+        </div>
+        <div class="product-info">
+          <h1>{{ product }}</h1>
+          <h3>{{ description }}</h3>
+          <p v-if="inventory > 50">In Stock</p>
+          <p v-else-if="inventory > 25">Almost sold out</p>
+          <p v-else>Out of Stock</p>
+          <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+          </ul>
+
+          <ul>
+            <li v-for="variant in variants">{{variant.variantId}}, {{variant.variantColor}}</li>
+          </ul>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- Import Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Import Js -->
+    <script src="./main.js"></script>
+  </body>
+</html>
