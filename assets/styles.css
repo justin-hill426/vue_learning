@@ -40,6 +40,9 @@ body {
     border-radius: 50%;
   }
   
+  .strikeThrough {
+    text-decoration: line-through;
+  }
   
   .disabledButton {
     background-color: #d8d8d8;
