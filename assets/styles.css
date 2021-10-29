@@ -148,6 +148,11 @@ body {
     display: block;
     margin: 30px auto;
   }
+
+  .activeTab {
+    text-decoration: underline;
+    color:aqua;
+  }
   
   select {
     height: 40px;
