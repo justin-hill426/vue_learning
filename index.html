@@ -14,7 +14,7 @@
           <p>Cart({{ cart.length }})</p>
       </div>
 
-      <product :premium=true v-on:add-to-card="updateCart"></product>
+      <product :premium=true v-on:custom='updateCart'></product>
         
     </div>
 

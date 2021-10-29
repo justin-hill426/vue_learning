@@ -29,15 +29,15 @@ Vue.component('product', {
                 @mouseover="updateProduct(index)">
             </div>
 
-            <button v-on:click="addToCart" 
+            <button @click="addToCart" 
                     :disabled="!inStock"
-                    :class="{disabledButton: !inStock}">Add to Cart</button>
+                    :class="{disabledButton: !inStock}">Add to Cart</button>        
         </div>
+        <product-review></product-review>
     </div>`,
   data() {
       return {
         brand: "Vue Mastery",
-        user_cart: 0,
         product: 'Socks',
         description: 'This is a description for the item',
         selectedVariant: 0,
@@ -62,7 +62,7 @@ Vue.component('product', {
     },
     methods: {
         addToCart() {
-            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId);
+            this.$emit('custom', this.variants[this.selectedVariant].variantId);
         },
         updateProduct(index) {
             this.selectedVariant = index
@@ -89,16 +89,27 @@ Vue.component('product', {
     }
 
 })
+Vue.component('product-review', {
+    template: 
+    //html
+    `
+        <input v-model="name">
+    `,
+    data() {
+        return {
+            name: null
+        }
+    }
+})
 var app = new Vue({
     el: '#app',
     data: {
         premium: false,
-        cart: 0,
+        cart: [],
     },
     methods: {
-        updateCart(id) {
-            this.cart.push(id);
-            console.log(id);
+        updateCart(itemId) {
+            this.cart.push(itemId);
         }
     }
 })
